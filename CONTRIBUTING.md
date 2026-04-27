@@ -32,50 +32,116 @@ refactor: extrai service de envio de e-mail
 chore: atualiza dependências
 ```
 
+---
+
 ## 🌿 Branches
 
-- `main` — produção, sempre estável
-- `develop` — integração (opcional, para projetos maiores)
-- `feat/<descricao-curta>` — novas features
-- `fix/<descricao-curta>` — correções
-- `hotfix/<descricao-curta>` — correções urgentes em produção
-- `chore/<descricao-curta>` — manutenção
+- `main` — produção. **Protegida**, recebe só PRs aprovados com CI verde.
+- `develop` — integração (opcional).
+- `feat/<nome>` — nova funcionalidade.
+- `fix/<nome>` — correção de bug.
+- `hotfix/<nome>` — correção urgente em produção.
+- `docs/<nome>` — só documentação.
 
-Use **kebab-case** no nome da branch.
-
-## 🔁 Pull Requests
-
-1. Crie a branch a partir de `main` (ou `develop`).
-2. Faça commits pequenos e atômicos seguindo Conventional Commits.
-3. Abra o PR usando o template (`.github/PULL_REQUEST_TEMPLATE.md`).
-4. Descreva **o que** mudou e **por que**.
-5. Marque o checklist de revisão.
-6. Aguarde aprovação antes do merge.
-
-## 📂 Padrões de código
-
-- **Nomes de arquivos:** `kebab-case` (`meu-arquivo.js`, não `MeuArquivo.js`).
-- **Variáveis e funções:** `camelCase`.
-- **Classes e componentes:** `PascalCase`.
-- **Constantes globais:** `UPPER_SNAKE_CASE`.
-- Linhas até ~100 colunas (não obrigatório).
-- Use linter/formatter do projeto (ESLint, Prettier, Ruff etc.).
-
-## 🔐 Segurança
-
-- **Nunca** commite credenciais, tokens, chaves ou `.env`.
-- Use `.env.example` para documentar variáveis necessárias.
-- Antes de fazer push, revise o diff (`git diff --staged`).
-- Se vazar uma credencial, **revogue imediatamente** e abra issue.
-
-## 🐛 Reportando bugs
-
-Use o template de [bug report](.github/ISSUE_TEMPLATE/bug_report.md). Inclua passos para reproduzir, comportamento esperado e ambiente.
-
-## 💡 Sugerindo features
-
-Use o template de [feature request](.github/ISSUE_TEMPLATE/feature_request.md). Descreva o problema, a solução proposta e alternativas consideradas.
+Use **kebab-case** nos nomes de arquivos e branches.
 
 ---
 
-© Fluxo Digital Tech
+## 🛡️ Branch Protection (main)
+
+A branch `main` é protegida. **Não tente push direto.** O fluxo é sempre:
+
+1. Crie uma branch a partir da `main`.
+2. Faça seus commits seguindo Conventional Commits.
+3. Abra um **Pull Request** para `main`.
+4. Aguarde:
+   - ✅ CI verde (lint, validate-json, gitleaks).
+   - ✅ Conventional Commits Check no título do PR.
+   - ✅ Pelo menos 1 aprovação na revisão.
+   - ✅ Conversas resolvidas.
+5. Faça merge usando **Squash and merge** ou **Rebase and merge** (mantém histórico linear).
+
+Detalhes completos em [`.github/BRANCH_PROTECTION.md`](.github/BRANCH_PROTECTION.md).
+
+---
+
+## 🔄 Fluxo de Pull Request
+
+```bash
+# 1. Atualizar a main local
+git switch main
+git pull origin main
+
+# 2. Criar branch
+git switch -c feat/minha-feature
+
+# 3. Trabalhar e commitar
+git add .
+git commit -m "feat: descrição clara do que foi feito"
+
+# 4. Push
+git push origin feat/minha-feature
+
+# 5. Abrir PR no GitHub usando o template
+```
+
+### Antes de abrir o PR
+
+- [ ] CI local passou (`npm test`, `npm run lint`, etc., se aplicável).
+- [ ] Não há credenciais ou `.env` no diff.
+- [ ] CHANGELOG.md atualizado (se for mudança visível).
+- [ ] README atualizado (se mudou comportamento ou setup).
+
+---
+
+## 🔐 Segurança
+
+- **Nunca** comite `.env`, chaves, tokens ou credenciais.
+- Use `.env.example` como referência das variáveis necessárias.
+- O scanner **gitleaks** roda automaticamente — PRs com segredos serão bloqueados.
+- Vulnerabilidades: ver [SECURITY.md](SECURITY.md).
+
+---
+
+## 🐛 Reportando bugs
+
+Use o template de **Bug Report** em Issues. Inclua:
+
+- Versão / commit afetado.
+- Passos para reproduzir.
+- Comportamento esperado vs. observado.
+- Logs e screenshots quando relevante.
+
+---
+
+## ✨ Sugerindo features
+
+Use o template de **Feature Request** em Issues. Descreva:
+
+- Problema que a feature resolve.
+- Solução proposta.
+- Alternativas consideradas.
+- Impacto esperado.
+
+---
+
+## 📐 Padrões de código
+
+- **Arquivos**: kebab-case (`meu-arquivo.js`).
+- **Variáveis/funções**: camelCase.
+- **Classes**: PascalCase.
+- **Constantes**: UPPER_SNAKE_CASE.
+- **Indentação**: 2 spaces (4 para Python) — definido em `.editorconfig`.
+
+---
+
+## 🙋 Dúvidas
+
+Abra uma issue com label `question` ou entre em contato:
+
+- 🌍 [fluxodigitaltech.com.br](https://fluxodigitaltech.com.br)
+- ✉️ [fluxodigitaltech@gmail.com](mailto:fluxodigitaltech@gmail.com)
+
+---
+
+> Construído para escalar negócios com **automação, IA e estratégia**.
