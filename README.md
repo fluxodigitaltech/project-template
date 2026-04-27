@@ -1,65 +1,89 @@
 # 🚀 Project Template — Fluxo Digital Tech
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Mantido por](https://img.shields.io/badge/mantido%20por-Fluxo%20Digital%20Tech-0A66C2)](https://github.com/fluxodigitaltech)
+[![Use this template](https://img.shields.io/badge/use%20this-template-2ea44f?style=for-the-badge&logo=github)](https://github.com/fluxodigitaltech/project-template/generate)
+[![CI](https://github.com/fluxodigitaltech/project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/fluxodigitaltech/project-template/actions/workflows/ci.yml)
+[![Secret Scan](https://github.com/fluxodigitaltech/project-template/actions/workflows/gitleaks.yml/badge.svg)](https://github.com/fluxodigitaltech/project-template/actions/workflows/gitleaks.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-fe5196.svg?logo=conventionalcommits&logoColor=white)](https://www.conventionalcommits.org)
+[![Keep a Changelog](https://img.shields.io/badge/Keep%20a%20Changelog-1.1.0-orange.svg)](https://keepachangelog.com/pt-BR/1.1.0/)
+[![SemVer](https://img.shields.io/badge/SemVer-2.0.0-blue.svg)](https://semver.org/lang/pt-BR/)
 
-Template oficial da **Fluxo Digital Tech** para iniciar novos projetos já com a estrutura de governança, segurança e boas práticas configuradas.
+Template oficial da **Fluxo Digital Tech** para iniciar novos projetos com toda a governança, automação e segurança já configuradas.
 
 ---
 
-## ✅ O que vem incluso
+## 📦 Como usar
 
-- `README.md` — modelo padrão (este arquivo)
-- `LICENSE` — MIT License
-- `.gitignore` — node, python, editores, credenciais e arquivos sensíveis
-- `CONTRIBUTING.md` — guia de Conventional Commits, branches e PRs
-- `CODE_OF_CONDUCT.md` — Contributor Covenant 2.1
-- `SECURITY.md` — política de divulgação responsável
-- `.github/PULL_REQUEST_TEMPLATE.md`
-- `.github/ISSUE_TEMPLATE/bug_report.md`
-- `.github/ISSUE_TEMPLATE/feature_request.md`
+1. Clique em **`Use this template`** → **`Create a new repository`**.
+2. Escolha o nome do novo repositório.
+3. Clone localmente:
+   ```bash
+   git clone https://github.com/fluxodigitaltech/<nome-do-projeto>.git
+   cd <nome-do-projeto>
+   cp .env.example .env
+   ```
+4. Edite `README.md`, `CHANGELOG.md` e `.env` com os dados do projeto.
+5. Comece a desenvolver seguindo o padrão.
 
-## 🧰 Como usar
+---
 
-### Opção 1 — Use this template (recomendado)
+## 🧱 O que vem incluído
 
-1. Abra o repositório [`project-template`](https://github.com/fluxodigitaltech/project-template).
-2. Clique em **Use this template → Create a new repository**.
-3. Defina nome, descrição e visibilidade do novo projeto.
-4. Clone localmente e comece a desenvolver.
+### 📄 Documentação
+- `README.md` — overview do projeto.
+- `CHANGELOG.md` — histórico de versões (Keep a Changelog + SemVer).
+- `CONTRIBUTING.md` — guia de contribuição com Conventional Commits.
+- `CODE_OF_CONDUCT.md` — Contributor Covenant 2.1.
+- `SECURITY.md` — política de divulgação responsável.
+- `LICENSE` — MIT.
 
-### Opção 2 — Clone manual
+### 🤖 Automação (GitHub Actions)
+- **CI** (`.github/workflows/ci.yml`) — lint, validação de JSON e checagem de PR title.
+- **Secret Scan** (`.github/workflows/gitleaks.yml`) — gitleaks em push/PR e semanalmente.
+- **Dependabot** (`.github/dependabot.yml`) — atualizações semanais (Actions, npm, pip, Docker).
 
-```bash
-git clone https://github.com/fluxodigitaltech/project-template.git meu-novo-projeto
-cd meu-novo-projeto
-rm -rf .git
-git init
-git add .
-git commit -m "chore: bootstrap project from template"
-```
+### 📋 Templates
+- Pull Request (`.github/PULL_REQUEST_TEMPLATE.md`).
+- Issue: bug report e feature request (`.github/ISSUE_TEMPLATE/`).
+
+### ⚙️ Configuração
+- `.gitignore` — credenciais, node, python, editores.
+- `.editorconfig` — formatação consistente entre IDEs.
+- `.env.example` — variáveis documentadas.
+
+---
 
 ## 📐 Padrões adotados
 
-- **Conventional Commits** (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `test:`, `style:`, `perf:`, `ci:`, `build:`)
-- **Branches**: `main` (produção), `develop` (integração), `feat/*`, `fix/*`, `hotfix/*`
-- **Pull Requests**: sempre usar template, descrever o porquê, marcar checklist
-- **Issues**: usar templates de bug ou feature
-- **Arquivos**: `kebab-case`
-- **Segurança**: nada de credenciais no código — usar `.env` (já no `.gitignore`)
+| Padrão | Especificação |
+| --- | --- |
+| Commits | [Conventional Commits 1.0.0](https://www.conventionalcommits.org) |
+| Versionamento | [Semantic Versioning 2.0.0](https://semver.org) |
+| Changelog | [Keep a Changelog 1.1.0](https://keepachangelog.com) |
+| Branches | `main` (produção), `feat/*`, `fix/*`, `hotfix/*` |
+| Arquivos | kebab-case |
+| Segurança | nunca commitar credenciais — usar `.env` e secrets |
 
-## 🔐 Segurança
+### Tipos de commit aceitos
 
-Veja [SECURITY.md](./SECURITY.md). Encontrou uma vulnerabilidade? Reporte para [fluxodigitaltech@gmail.com](mailto:fluxodigitaltech@gmail.com).
-
-## 🤝 Contribuindo
-
-Leia [CONTRIBUTING.md](./CONTRIBUTING.md) antes de abrir PRs.
-
-## 📜 Licença
-
-Distribuído sob a licença [MIT](./LICENSE). © Fluxo Digital Tech.
+`feat` · `fix` · `docs` · `style` · `refactor` · `perf` · `test` · `build` · `ci` · `chore` · `revert`
 
 ---
 
-Construído com ⚡ pela **[Fluxo Digital Tech](https://github.com/fluxodigitaltech)**
+## 🔐 Segurança
+
+- **Nunca** faça commit de `.env`, chaves, tokens ou credenciais.
+- O scanner **gitleaks** roda automaticamente em todo push/PR.
+- Reporte vulnerabilidades conforme [SECURITY.md](SECURITY.md).
+
+---
+
+## 🌐 Fluxo Digital Tech
+
+- 🌍 Site — [fluxodigitaltech.com.br](https://fluxodigitaltech.com.br)
+- 📸 Instagram — [@fluxodigital.tech](https://instagram.com/fluxodigital.tech)
+- ✉️ E-mail — [fluxodigitaltech@gmail.com](mailto:fluxodigitaltech@gmail.com)
+
+---
+
+> Construído para escalar negócios com **automação, IA e estratégia**.
